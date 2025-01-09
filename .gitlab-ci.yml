@@ -1,0 +1,81 @@
+# .gitlab-ci.yml
+
+# Specify Docker image with Node.js
+image: node:latest
+
+# Define stages
+stages:
+  - build
+  - test
+  - deploy
+
+# Define jobs
+build:
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+
+unit-test-job:
+  stage: test
+  before_script:
+    - npm install jest          # Install Jest locally
+    - npm install -g jest jest-junit  # Install Jest JUnit reporter
+  script:
+    - npx jest --ci --reporters=default --reporters=jest-junit  # Run tests with Jest
+  after_script:
+    - |
+      echo "Testing completed. Cleaning up..."
+      # Add any cleanup commands here if needed
+  artifacts:
+    when: always
+    paths:
+      - junit.xml
+    expire_in: 1 week   # Set expiration time for artifacts
+
+lint-test-job:
+  stage: test
+  script:
+    - echo "Linting code... This will take about 10 seconds."
+    - sleep 10
+    - echo "No lint issues found."
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp home.html .public
+    - cp assets .public
+    - cp Entity.js .public
+    - cp BoardView.js .public
+    - cp CantPlaceBombs.js .public
+    - cp Game.js .public
+    - cp DecreaseBlastRange.js .public
+    - cp IncreaseBlastRange.js .public
+    - cp IncreaseBombCount.js .public
+    - cp Player.js .public
+    - cp DecreaseSpeed.js .public
+    - cp Dentonator.js .public
+    - cp Direction.js .public
+    - cp Ghost.js .public
+    - cp Home.js .public
+    - cp Invincible.js .public
+    - cp LevelEditor.js .public
+    - cp loadMapFromJson.js .public
+    - cp MapElement.js .public
+    - cp Model.js .public
+    - cp Monster.js .public
+    - cp Obstacle.js .public
+    - cp PlaceBombsASAP.js .public
+    - cp Position.js .public
+    - cp Rollerskate.js .public
+    - cp saveMapToJson.js .public
+    - cp script.js .public
+    - cp SpecialAbillity.js .public
+
+  artifacts:
+    paths:
+      - .public
+  only:
+    - master 
+

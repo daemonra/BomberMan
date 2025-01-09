@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/icon.png">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>BomberMan</title>
+  </head>
+  <body>
+
+    <!-- level editor menu -->
+   <div id="levelEditorMenu" class="menu hidden">
+      <div class="leftPart">
+        <div class="TitelImage"></div>
+
+        <!-- Map container -->
+        <div id="editorMapContainer"></div>
+        <!-- Ensure unique ID for map container -->
+
+        <!-- Icons container -->
+        <div class="icons-container">
+          <!-- Wall icon -->
+          <div class="icon-container">
+            <img src="assets/w.jpg" id="wallIcon" class="icon" width="50"
+              height="50">
+            <span>Wall</span>
+          </div>
+
+          <!-- Box icon -->
+          <div class="icon-container">
+            <img src="assets/b.png" id="boxIcon" class="icon" width="50"
+              height="50">
+            <span>Box</span>
+          </div>
+
+          <!-- Player icon -->
+          <div class="icon-container">
+            <img src="assets/player1.png" id="playerIcon" class="icon"
+              width="50" height="50">
+            <span>Player</span>
+          </div>
+
+          <!-- Monster icon (optional) -->
+          <div class="icon-container">
+            <img src="assets/m.png" id="monsterIcon" class="icon" width="50"
+              height="50">
+            <span>Monster</span>
+          </div>
+        </div>
+
+        <!-- Save and export buttons -->
+        <div class="buttons-container">
+          <button id="saveLevel" class="btns">Save Level</button>
+          </div>
+         <div class="buttons-container">
+          <button id="loadLevel" class="btns">Load Level</button>
+          <li style="color: white;">
+            Load a map
+            <input class="btns" type="file" id="mapFileEditor" accept=".json" />
+          </li>
+          </div>
+         <div class="buttons-container">
+          <li><a href="#" data-target="firstMenu"
+              data-origin="levelEditorMenu" style="color: #ba0101;">RETURN</a></li> </div>
+      </div>
+    </div>
+
+    <!-- add menus below! -->
+    <div id="firstMenu" class="menu active">
+      <div class="leftPart">
+        <div class="TitelImage"></div>
+
+        <div class="vmenu">
+          <ul>
+            <li><a href="#" data-target="thirdMenu"
+                data-origin="firstMenu">1.START THE GAME</a></li>
+            <li><a href="#" data-target="levelEditorMenu"
+                data-origin="firstMenu">2.CREATE A NEW MAP</a></li>
+            <li><a id="quitLink" onclick="window.close()">4.QUIT</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="thirdMenu" class="menu hidden">
+      <div class="leftPart">
+        <div class="TitelImage"></div>
+
+        <div class="vmenu">
+          <ul>
+            <li><a href="#" data-target="gameMap" data-origin="thirdMenu"
+                data-index="0">MAIN MAP</a></li>
+            <!-- <li><a href="#" data-target="gameMap" data-origin="thirdMenu"
+                data-index="1">MAP 2</a></li>
+            <li><a href="#" data-target="gameMap" data-origin="thirdMenu"
+                data-index="2">MAP 3</a></li> -->
+            <!-- Integrate file picker directly into the "Load a map" option -->
+            <li>
+              <input class="btns" type="file" id="mapFileInput" accept=".json" />
+              <a href="#" data-target="gameMap" data-origin="thirdMenu"
+                data-index="3">Load a map</a>
+            </li>
+
+            <li><a href="#" data-target="firstMenu"
+                data-origin="thirdMenu">RETURN</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+        <!-- game map below! -->
+        <div id="gameMap" class="hidden">
+          <div class="container">
+            <div id="timeTable">
+              <div>Game Timer: <span id="gameTimer">1:00</span></div>
+              <div>Map Shrinks in: <span id="BattleRoyaleTimer">1:00</span></div>
+            </div>
+            <div id="left">
+              <table id="map"></table>
+            </div>
+          </div>
+        </div>
+
+    <!-- add pop ups below! -->
+
+    <!-- exitGamePopup -->
+    <div id="exitGamePopup" class="hidden">
+      <div class="popup">
+        <p>Are you sure you want to exit?</p>
+        <div class="button-container">
+          <button id="exitYes">Yes</button>
+          <button id="exitNo">No</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- endGameStatusPopup -->
+    <div class="hidden" id="endGameStatusPopup">
+      <div class="popup">
+        <p id="winLoseMessage">You are the Winner</p>
+        <div class="button-container">
+          <button id="newGame" onclick="window.location.reload()">NewGame</button>
+          <button id="exitGame" onclick="window.close()">Exit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- scripts below! -->
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

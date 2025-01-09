@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="3.435">
+  <testsuite name="BoardView" errors="0" failures="0" skipped="0" timestamp="2024-04-25T21:09:47" time="1.818" tests="3">
+    <testcase classname="BoardView showModule should display the module with the given ID" name="BoardView showModule should display the module with the given ID" time="0.022">
+    </testcase>
+    <testcase classname="BoardView renderMatrix should update the table#map with the provided matrix" name="BoardView renderMatrix should update the table#map with the provided matrix" time="0.019">
+    </testcase>
+    <testcase classname="BoardView displayExitPopUp should do something" name="BoardView displayExitPopUp should do something" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Home" errors="0" failures="0" skipped="0" timestamp="2024-04-25T21:09:47" time="1.82" tests="2">
+    <testcase classname="Home constructor should set up event listeners" name="Home constructor should set up event listeners" time="0.009">
+    </testcase>
+    <testcase classname="Home showModule should remove &quot;hidden&quot; class from module" name="Home showModule should remove &quot;hidden&quot; class from module" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="Game" errors="0" failures="0" skipped="0" timestamp="2024-04-25T21:09:47" time="1.843" tests="1">
+    <testcase classname="Game constructor should initialize the game correctly" name="Game constructor should initialize the game correctly" time="0.014">
+    </testcase>
+  </testsuite>
+</testsuites>

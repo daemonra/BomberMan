@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoardView renderMatrix should update the table#map with the provided matrix 1`] = `"<tbody><tr><td class="grid field " data-i="0" data-j="0"><span></span></td><td class="grid wall " data-i="0" data-j="1"><span></span></td></tr><tr><td class="grid player playerOne " data-i="1" data-j="0"><span></span></td><td class="grid player playerTwo " data-i="1" data-j="1"><span></span></td></tr></tbody>"`;
